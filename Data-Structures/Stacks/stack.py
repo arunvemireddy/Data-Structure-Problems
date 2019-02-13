@@ -21,11 +21,26 @@ class Stack:
             raise ValueError("Under Flow Condition")
         retValue = self.head
         self.head = self.head.next
+        self.length -=1
         return retValue
 
     def __str__(self):
+        print("print called")
         message = ""
         traverse = self.head
         while traverse is not None:
+            message += "{}|".format(traverse.data)
+            traverse = traverse.next
+        return message
+
+def main():
+    stack = Stack()
+    for i in range(10):
+        stack.push(i)
+    print(stack)
+    for i in range(11):
+        stack.pop()
+    print(stack)
+main()
             
         
