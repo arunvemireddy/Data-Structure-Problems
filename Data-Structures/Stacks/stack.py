@@ -32,6 +32,11 @@ class Stack:
             message += "{}|".format(traverse.data)
             traverse = traverse.next
         return message
+    def is_empty(self):
+        if self.length == 0:
+            return True
+        return False
+            
 
 def main():
     stack = Stack()
@@ -41,6 +46,6 @@ def main():
     for i in range(11):
         stack.pop()
     print(stack)
-main()
+
             
         
