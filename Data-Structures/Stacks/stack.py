@@ -7,6 +7,7 @@ class Stack:
     def __init__(self):
         self.head = None
         self.length = 0
+        
     def push(self,data):
         if self.head is None:
             self.head = Node(data,None)
@@ -32,10 +33,16 @@ class Stack:
             message += "{}|".format(traverse.data)
             traverse = traverse.next
         return message
+    
     def is_empty(self):
         if self.length == 0:
             return True
         return False
+    
+    def get_top(self):
+        if self.head is not None:
+            return self.head.data
+        raise ValueError("Under Flow")
             
 
 def main():
