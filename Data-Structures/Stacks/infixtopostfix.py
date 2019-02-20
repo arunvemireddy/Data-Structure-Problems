@@ -34,28 +34,29 @@ class InfixToPostFix:
             if self.is_operand(char):
                 print(char),
             elif char == ")":
-                while self.stack.get_top() != "(":
-                        top = self.stack.pop().data
-                        if not self.is_bracket(char):
-                            print(top),
-                if self.stack.get_top() == "(":
-                    self.stack.pop()
-            else:
-                if not self.stack.is_empty():
-                    if char == ")":
-                        pass
-                    elif not self.is_higher_pro(char,self.stack.get_top()):
-                        top = self.stack.pop().data
+                top = self.stack.pop().data
+                while top != "(":
+                    if not self.is_bracket(top):
                         print(top),
+                    top = self.stack.pop().data
+            else:
+                if char == "(":
+                    self.stack.push(char)
+                if not self.stack.is_empty():
+                    if not self.is_higher_pro(char,self.stack.get_top()):
+                        top = self.stack.pop().data
+                        if not self.is_bracket(top):
+                            print(top),
                 self.stack.push(char)
                 
         while not self.stack.is_empty():
              top = self.stack.pop().data
-             print(top),
+             if not self.is_bracket(top):
+                 print(top),
 
 def main():
     convertor = InfixToPostFix()
-    convertor.convert("(A+B)+(C-D)")
+    convertor.convert("((A*B)+(C/D))")
                 
             
 main()
