@@ -1,6 +1,6 @@
 from stack import Stack
 
-class InfixToPostFix:
+class Convertor:
     def __init__(self):
         self.stack = Stack()
         
@@ -29,7 +29,7 @@ class InfixToPostFix:
             return priority[first] >= priority[second]
         return False
     
-    def convert(self,expression):
+    def infixToPostfix(self,expression):
         for char in expression:
             if self.is_operand(char):
                 print(char),
@@ -53,10 +53,26 @@ class InfixToPostFix:
              top = self.stack.pop().data
              if not self.is_bracket(top):
                  print(top),
+                 
+    def evaluatePostfix(self,expression):
+        self.stack = Stack()
+        for char in expression:
+            if self.is_operand(char):
+                self.stack.push(char)
+            else:
+                if not self.is_operand(char):
+                    if not self.stack.is_empty():
+                        second = self.stack.pop().data
+                        first = self.stack.pop().data
+                        _expression  = "{}{}{}".format(first,char,second)
+                        self.stack.push(eval(_expression))
+        print(self.stack.pop().data)
+        
 
 def main():
-    convertor = InfixToPostFix()
-    convertor.convert("((A*B)+(C/D))")
+    convertor = Convertor()
+    convertor.infixToPostfix("((A*B)+(C/D))")
+    convertor.evaluatePostfix("123*+5-")
                 
             
 main()
