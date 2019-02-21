@@ -3,19 +3,21 @@ from stack import Stack
 class AdvancedStack(Stack):
     def __init__(self):
         Stack.__init__(self)
-        self.minStack = Stack()
+        self.min_stack = Stack()
     def push(self,data):
-        if Stack.is_empty():
-            self.minStack.push(data)
+        if self.is_empty():
+            self.min_stack.push(data)
         else:
             top = Stack.get_top()
             if(data<top):
-                self.minStack.push(data)
+                self.min_stack.push(data)
         Stack.push(self,data)
     def get_min(self):
+        return self.min_stack.get_top()
     
 def main():
     stack = AdvancedStack()
-    stack.push('shubham')
-    print(stack)
+    for i in xrange(10):
+        stack.push(i)
+    print(stack.get_min())
 main()
