@@ -26,9 +26,12 @@ class Stack:
         return retValue
 
     def __str__(self):
-        print("print called")
+        
         message = ""
         traverse = self.head
+        if traverse is None:
+            return "Empty Stack"
+        
         while traverse is not None:
             message += "{}|".format(traverse.data)
             traverse = traverse.next
@@ -42,7 +45,8 @@ class Stack:
     def get_top(self):
         if self.head is not None:
             return self.head.data
-        raise ValueError("Under Flow")
+        print("Empty Stack")
+        return None
             
 
 def main():
