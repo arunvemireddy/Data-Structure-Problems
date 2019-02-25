@@ -35,3 +35,16 @@ class Queue:
     def is_empty_queue(self):
         return not self.length >0
 
+    def __len__(self):
+        return self.length
+
+    def __str__(self):
+        retValue = ""
+        current = self.head
+        if current is not None:
+            retValue = "<- "
+            while current:
+                retValue += str(current.data)+" | "
+                current = current.next
+            retValue += " <-"
+        return retValue
