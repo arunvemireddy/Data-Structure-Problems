@@ -96,16 +96,58 @@ class Tree:
         second_node.left = fifth_node
         second_node.right = sixth_node
 
+    def find_max(self, node):
+        if node is None:
+            return -999999
+
+        current_data = node.data
+        left_data = self.find_max(node.left)
+        right_data = self.find_max(node.right)
+
+        max = None
+        if(left_data > right_data):
+            max = left_data
+        else: 
+            max = right_data
+        if(current_data > max):
+            max = current_data
+        
+        return max
+    def find_max_iterative(self):
+        queue = Queue()
+        max = -999999
+        queue.enqueue(self.root)
+
+        while not queue.is_empty():
+            temp = queue.dequeue()
+            if(temp.data > max):
+                max = temp.data
+
+            if temp.left is not None:
+                queue.enqueue(temp.left)
+
+            if temp.right is not None:
+                queue.enqueue(temp.right)
+        return max
+    def search(self, node, value):
+        if node is None:
+            return False
+        if node.data == value:
+            return True
+        left_value = self.search(node.left,value)
+        if left_value:
+            return left_value
+        return self.search(node.right, value)
+        
+
+
+
 
 def main():
     tree = Tree()
     tree.setup()
-    #tree.preorder_traverse_itretive()
-    #tree.inorder_traverse()
-    #print('break')
-    #tree.inorder_traverse_iterative()
-    #tree.postorder_traverse()
-    tree.levelorder_traverse()
-
+    print(tree.find_max(tree.root))
+    print(tree.find_max_iterative())
+    print(tree.search(tree.root, 2))
     
 main()
