@@ -1,4 +1,5 @@
 from stack import Stack
+from queue import Queue
 
 class Node:
     def __init__(self,data,left_node=None, right_node=None):
@@ -40,6 +41,21 @@ class Tree:
             root = stack.pop().data
             print(root.data)
             root = root.right
+            
+    def levelorder_traverse(self):
+        if self.root is None:
+            return
+        queue = Queue()
+        queue.enqueue(self.root)
+        while(not queue.is_empty()):
+            temp = queue.dequeue()
+            print temp.data
+            if temp.left is not None:
+                queue.enqueue(temp.left)
+            if temp.right is not None:
+                queue.enqueue(temp.right)
+            print(queue)
+        del queue
     
     def __preorder_traverse(self,node):
         if(node is not None):
@@ -80,5 +96,6 @@ def main():
     #tree.inorder_traverse()
     #print('break')
     #tree.inorder_traverse_iterative()
-    tree.postorder_traverse()
+    #tree.postorder_traverse()
+    tree.levelorder_traverse()
 main()
