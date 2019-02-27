@@ -1,4 +1,4 @@
-class Node:
+class QueueNode:
     def __init__(self,data,nNode=None):
         self.data = data
         self.next = nNode
@@ -8,7 +8,7 @@ class Queue:
         self.tail = None
         self.length = 0
     def enqueue(self,data):
-        new_node = Node(data)
+        new_node = QueueNode(data)
         self.length +=1
         if self.tail is None:
             self.head = new_node
@@ -16,6 +16,7 @@ class Queue:
             return
         self.tail.next = new_node
         self.tail = new_node
+
     def dequeue(self):
         if self.head is None:
             raise ValueError("Underflow")
@@ -23,6 +24,7 @@ class Queue:
         retValue = self.head.data
         if self.head.next is None:
             self.head = None
+            self.tail = None
             return retValue
         self.head = self.head.next
         return retValue
