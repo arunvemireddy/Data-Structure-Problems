@@ -81,21 +81,6 @@ class Tree:
             self.__inorder_traverse(node.right)
             print(node.data)
 
-    def setup(self):
-        self.root = Node(1)
-        first_node = Node(2)
-        second_node = Node(3)
-        self.root.left = first_node
-        self.root.right = second_node
-        third_node = Node(4)
-        fourth_node = Node(5)
-        fifth_node = Node(6)
-        sixth_node = Node(7)
-        first_node.left = third_node
-        first_node.right = fourth_node
-        second_node.left = fifth_node
-        second_node.right = sixth_node
-
     def find_max(self, node):
         if node is None:
             return -999999
@@ -129,6 +114,7 @@ class Tree:
             if temp.right is not None:
                 queue.enqueue(temp.right)
         return max
+    
     def search(self, node, value):
         if node is None:
             return False
@@ -138,6 +124,48 @@ class Tree:
         if left_value:
             return left_value
         return self.search(node.right, value)
+    
+    def insert(self,data):
+        new_node = Node(data)
+        if self.root is None:
+            self.root = new_node
+            return
+        
+        queue = Queue()
+        queue.enqueue(self.root)
+
+        while not queue.is_empty():
+            temp = queue.dequeue()
+            if temp.left is None:
+                temp.left = new_node
+                break
+            else:
+                queue.enqueue(temp.left)
+            if temp.right is None:
+                temp.right = new_node
+                break
+            else:
+                queue.enqueue(temp.right)
+        
+        del queue
+        return
+
+    def size(self):
+        return self.__size(self.root)
+
+    def __size(self,node):
+        if node is None:
+            return 0
+        
+        left_size = 0
+        right_size = 0
+        
+        if node.left is not None:
+            left_size = self.__size(node.left)
+        if node.right is not None:
+            right_size = self.__size(node.right)
+        
+        return left_size+ 1 + right_size
         
 
 
@@ -145,9 +173,13 @@ class Tree:
 
 def main():
     tree = Tree()
-    tree.setup()
-    print(tree.find_max(tree.root))
-    print(tree.find_max_iterative())
-    print(tree.search(tree.root, 2))
+    for i in range(10):
+        tree.insert(i)
+    
+    #tree.levelorder_traverse()
+    print(tree.size())
+    #print(tree.find_max(tree.root))
+    #print(tree.find_max_iterative())
+    #print(tree.search(tree.root, 2))
     
 main()
