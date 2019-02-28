@@ -7,6 +7,8 @@ class Node:
         self.data = data
         self.left = left_node
         self.right = right_node
+    def __eq__(self,other):
+        return self.data == other.data
 
 
 class Tree:
@@ -167,17 +169,27 @@ class Tree:
         
         return left_size+ 1 + right_size
         
-
+    def __eq__(self,other):
+        if self.head is None and other is None:
+            return True
+        
+        if self.head or None and other is None:
+            return True
+        
+        return self == other and self.left == other.left and self.right == other.right
+            
 
 
 
 def main():
     tree = Tree()
+    tree2 = Tree()
     for i in range(10):
         tree.insert(i)
+        tree2.insert(i)
     
     #tree.levelorder_traverse()
-    print(tree.size())
+    print(tree==tree2)
     #print(tree.find_max(tree.root))
     #print(tree.find_max_iterative())
     #print(tree.search(tree.root, 2))
