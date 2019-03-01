@@ -1,15 +1,18 @@
 from stack import Stack
 from queue import Queue
 
-
 class Node:
     def __init__(self, data, left_node=None, right_node=None):
         self.data = data
         self.left = left_node
         self.right = right_node
-    def __eq__(self,other):
-        return self.data == other.data
 
+    def __eq__(self,other):
+        if self is None and other is None:
+            return True
+        if self is None or other is None:
+            return False
+        return self.data == other.data and self.left == other.left and self.right == other.right
 
 class Tree:
     def __init__(self):
@@ -151,6 +154,31 @@ class Tree:
         
         del queue
         return
+    
+    def find_max_level_sum(self):
+        queue = Queue()
+        queue.enqueue(self.root)
+        queue.enqueue(None)
+
+        max_value = 0
+        level_total = 0
+        while not queue.is_empty():
+            temp = queue.dequeue()
+            if temp is not None:
+                level_total += temp.data
+                if temp.left is not None:
+                    queue.enqueue(temp.left)
+                if temp.right is not None:
+                    queue.enqueue(temp.right)
+            else:
+                if level_total > max_value:
+                    max_value = level_total
+                if not queue.is_empty():
+                    level_total = 0
+                    queue.enqueue(None)
+        return max_value
+                
+        
 
     def size(self):
         return self.__size(self.root)
@@ -170,15 +198,7 @@ class Tree:
         return left_size+ 1 + right_size
         
     def __eq__(self,other):
-        if self.head is None and other is None:
-            return True
-        
-        if self.head or None and other is None:
-            return True
-        
-        return self == other and self.left == other.left and self.right == other.right
-            
-
+        return self.root==other.root
 
 
 def main():
@@ -186,12 +206,11 @@ def main():
     tree2 = Tree()
     for i in range(10):
         tree.insert(i)
-        tree2.insert(i)
+        if i%2==0:
+            tree2.insert(i)
     
-    #tree.levelorder_traverse()
-    print(tree==tree2)
-    #print(tree.find_max(tree.root))
-    #print(tree.find_max_iterative())
-    #print(tree.search(tree.root, 2))
+    
+    
+    
     
 main()
