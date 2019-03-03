@@ -177,7 +177,17 @@ class Tree:
                     level_total = 0
                     queue.enqueue(None)
         return max_value
-                
+    
+    def print_leaf_node_path(self,node,path):
+        if node is None:
+            return
+        path.append(node.data)
+        if node.left is None and node.right is None:
+            print(path)
+        else:
+            self.print_leaf_node_path(node.left,path[:])
+            self.print_leaf_node_path(node.right,path[:])
+
         
 
     def size(self):
@@ -204,13 +214,13 @@ class Tree:
 def main():
     tree = Tree()
     tree2 = Tree()
-    for i in range(10):
+    for i in range(1,10):
         tree.insert(i)
         if i%2==0:
             tree2.insert(i)
     
     
-    
+    tree.print_leaf_node_path(tree.root,[])
     
     
 main()
