@@ -60,7 +60,7 @@ def zig_zag_traverse(node):
         temp = current_stack.pop().data
         #print ("inslide node {}".format(temp.data))
         if temp:
-            print(temp.data),
+            print(temp.data)
             if left_to_right:
                 if temp.left:
                     next_stack.push(temp.left)
