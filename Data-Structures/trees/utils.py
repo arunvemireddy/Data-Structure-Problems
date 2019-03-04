@@ -1,6 +1,6 @@
 from tree import Tree
 from tree import Node
-
+from stack import Stack
 def find_path_with_sum(node,sum,path):
     if node is None:
         return
@@ -47,16 +47,44 @@ def build_tree(preorder_string,inorder_string,start,end):
     newNode.right = build_tree(preorder_string,inorder_string,inorderIndex+1,end)
     return newNode
 
+def zig_zag_traverse(node):
+    if node is None:
+        return 
+    
+    current_stack = Stack()
+    next_stack = Stack()
+    left_to_right = True
+    current_stack.push(node)
+
+    while not current_stack.is_empty():
+        temp = current_stack.pop().data
+        #print ("inslide node {}".format(temp.data))
+        if temp:
+            print(temp.data),
+            if left_to_right:
+                if temp.left:
+                    next_stack.push(temp.left)
+                if temp.right:
+                    next_stack.push(temp.right)
+            else:
+                if temp.right:
+                    next_stack.push(temp.right)
+                if temp.left:
+                    next_stack.push(temp.left)
+                
+        if current_stack.is_empty():
+            left_to_right = not left_to_right
+            current_stack,next_stack = next_stack,current_stack
+    return
 
 
 def main():
-    inorder_text = "DBEAFC"
-    preorder_text = "ABDECF"
     tree = Tree()
-    build_tree.preorder_index = 0
-
-    tree.root = build_tree(preorder_text,inorder_text,0,len(preorder_text)-1)
+    for i in range(1,8):
+        tree.insert(i)
     tree.levelorder_traverse()
+    zig_zag_traverse(tree.root)
+    
 
 
 main()
