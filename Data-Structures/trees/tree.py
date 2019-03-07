@@ -211,16 +211,16 @@ class Tree:
         return self.root==other.root
 
 
-def main():
-    tree = Tree()
-    tree2 = Tree()
-    for i in range(1,10):
-        tree.insert(i)
-        if i%2==0:
-            tree2.insert(i)
+# def main():
+#     tree = Tree()
+#     tree2 = Tree()
+#     for i in range(1,10):
+#         tree.insert(i)
+#         if i%2==0:
+#             tree2.insert(i)
     
     
-    tree.print_leaf_node_path(tree.root,[])
+#     tree.print_leaf_node_path(tree.root,[])
     
     
-main()
+# main()
