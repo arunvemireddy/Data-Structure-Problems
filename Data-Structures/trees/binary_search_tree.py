@@ -24,12 +24,37 @@ class BinarySearchTree:
         self.__inorder_traverse(node.left)
         print(node.data)
         self.__inorder_traverse(node.right)
+    def find_min(self):
+        if not self.root:
+            raise ValueError("empty tree")
+        current = self.root
+        while current.left is not None:
+            current = current.left
+        return current
+    def find_max(self):
+        if not self.root:
+            raise ValueError("empty tree")
+        current = self.root
+        while current.right is not None:
+            current = current.right
+        return current
+    
+    def find(self,node,data):
+        if not node:
+            return None
+        if node and node.data == data:
+            return node
+        if data < node.data:
+            return self.find(node.left,data)
+        elif data > node.data:
+            return self.find(node.right,data)
 def main():
     tree = BinarySearchTree()
     for i in range(10):
         number = randrange(0,100)
         tree.insert(number)
     tree.inorder_traverse()
+    
 
 main()
             
