@@ -1,6 +1,8 @@
 from tree import Node
 from random import randrange
+import sys
 class BinarySearchTree:
+    prev = -sys.maxint -1
     def __init__(self):
         self.root = None
     def insert(self,data):
@@ -51,20 +53,11 @@ class BinarySearchTree:
     def is_bst(self,node):
         if node is None:
             return True
-        if node.left and self.find_max(node.left).data < node.data:
-            return True
-        if node.right and self.find_min(node.right).data > node.data:
-            return True
-        if not self.is_bst(node.left) or not self.is_bst(node.right):
+        if not self.is_bst(node.left):
             return False
-        return True
-def main():
-    tree = BinarySearchTree()
-    for i in range(10):
-        number = randrange(0,100)
-        tree.insert(number)
-    tree.inorder_traverse()
-    print(tree.is_bst(tree.root))
+        if node.data < self.prev:
+            return False
+        self.prev = node.data
+        return self.is_bst(node.right)
 
-main()
             

@@ -1,6 +1,7 @@
 from tree import Tree
 from tree import Node
 from stack import Stack
+from binary_search_tree import BinarySearchTree
 def find_path_with_sum(node,sum,path):
     if node is None:
         return
@@ -47,5 +48,31 @@ def build_tree(preorder_string,inorder_string,start,end):
     newNode.right = build_tree(preorder_string,inorder_string,inorderIndex+1,end)
     return newNode
 
+def convert_tree_to_dll(node,head):
+    if node is None:
+        return
+    convert_tree_to_dll.prev = None
+    convert_tree_to_dll(node.left,head)
+    if convert_tree_to_dll.prev is None:
+        head.data = node.data
+        head.left = node.left
+        head.right = node.right
+    else:
+        node.left = convert_tree_to_dll.prev
+        convert_tree_to_dll.prev.right = node
+    convert_tree_to_dll.prev = node
+    convert_tree_to_dll(node.right,head)
+    return
 
-
+def main():
+    tree = BinarySearchTree()
+    for i in range(1,10):
+        tree.insert(i)
+    tree.inorder_traverse()
+    head = Node(None)
+    convert_tree_to_dll.prev = None
+    convert_tree_to_dll(tree.root,head)
+    print(head.data)
+    while head.right:
+        print(head.data)
+main()
