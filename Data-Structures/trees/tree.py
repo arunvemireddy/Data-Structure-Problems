@@ -7,12 +7,12 @@ class Node:
         self.left = left_node
         self.right = right_node
 
-    def __eq__(self,other):
-        if self is None and other is None:
-            return True
-        if self is None or other is None:
-            return False
-        return self.data == other.data and self.left == other.left and self.right == other.right
+    # def __eq__(self,other):
+    #     if self is None and other is None:
+    #         return True
+    #     if self is None or other is None:
+    #         return False
+    #     return self.data == other.data and self.left == other.left and self.right == other.right
 
 class Tree:
     def __init__(self):
