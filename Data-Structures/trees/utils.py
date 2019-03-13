@@ -75,3 +75,22 @@ def copy_ref(self,other):
     self.left = other.left
     self.right = other.right
     return self
+
+def convert_linked_list_to_bst(head):
+    if head is None:
+        return None
+    queue = Queue()
+    queue.enqueue(head)
+    while not queue.is_empty():
+        parent = queue.dequeue()
+        left_child = right_child = None
+        if head.next is not None:
+            head = head.next
+            left_child = head
+            queue.enqueue(left_child)
+        if head.next is not None:
+            head = head.next
+            right_child = head
+            queue.enqueue(right_child)
+        parent.left = left_child
+        parent.right = right_child
