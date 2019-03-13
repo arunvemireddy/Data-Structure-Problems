@@ -58,9 +58,6 @@ def convert_tree_to_dll(node):
         return
     convert_tree_to_dll(node.left)
     if convert_tree_to_dll.prev is None:
-        # head.data = node.data
-        # head.left = node.left
-        # head.right = node.right
         global head
         head = node
         print(head)
@@ -78,21 +75,3 @@ def copy_ref(self,other):
     self.left = other.left
     self.right = other.right
     return self
-
-def main():
-    tree = BinarySearchTree()
-    tree.insert(65)
-    tree.insert(63)
-    tree.insert(85)
-    # tree.insert(62)
-    # # tree.insert(64)
-    # # tree.insert(84)
-    # # tree.insert(88)
-    global head
-    convert_tree_to_dll.prev = None
-    convert_tree_to_dll(tree.root)
-
-    while head:
-        print(head.data)
-        head = head.right
-main()
