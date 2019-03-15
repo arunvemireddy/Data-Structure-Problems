@@ -94,3 +94,23 @@ def convert_linked_list_to_bst(head):
             queue.enqueue(right_child)
         parent.left = left_child
         parent.right = right_child
+
+def find_ceil(array,low,high,key):
+    if key <array[low]:
+        return low
+    if key > array[high]:
+        return -1
+    mid = int((low+high)/2)
+    
+    if (key == array[mid]):
+        return mid
+    elif(key< array[mid]):
+        if(mid-1> low and key >array[mid-1]):
+            return mid
+        else:
+            find_ceil(array,low,mid-1,key)
+    else:
+        if(mid+1 <=high and key <= array[mid+1]):
+            return mid+1
+        else:
+            return find_ceil(array,mid+1,high,key)
