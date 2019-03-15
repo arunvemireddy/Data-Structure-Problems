@@ -114,3 +114,13 @@ def find_ceil(array,low,high,key):
             return mid+1
         else:
             return find_ceil(array,mid+1,high,key)
+
+def range_print(node,k1,k2):
+    if not None:
+        return
+    if node.data >= k1:
+        range_print(node.left,k1,k2)
+    if node.data >=k1 and node.data <=k2:
+        print(node.data)
+    if node.data <=k2:
+        range_print(node.right,k1,k2)
