@@ -8,7 +8,7 @@ class AVLTreeNode:
 class AVLTree:
     def __init__(self):
         self.head = None
-    def left_left_rotation(self,disbalanced_node):
+    def single_rotation_left(self,disbalanced_node):
         newParent = disbalanced_node.left
         disbalanced_node.left = newParent.right
         newParent.right = disbalanced_node
@@ -18,7 +18,7 @@ class AVLTree:
         disbalanced_node.height = max(self.get_height(disbalanced_node.left),self.get_height(disbalanced_node.right))
 
         return newParent
-    def right_right_rotation(self,disbalanced_node):
+    def single_rotation_right(self,disbalanced_node):
         newParent = disbalanced_node.right
         disbalanced_node.right = newParent.left
         newParent.left = disbalanced_node
@@ -28,6 +28,15 @@ class AVLTree:
         disbalanced_node.height = max(self.get_height(disbalanced_node.left),self.get_height(disbalanced_node.right))
 
         return newParent
+    def double_rotation_lr(self,disbalanced_node):
+        disbalanced_node.left = single_rotation_right(disbalanced_node.left)
+        return single_rotation_left(disbalanced_node)
+    
+    def double_rotation_rl(self,disbalanced_node):
+        disbalanced_node.right = single_rotation_left(disbalanced_node.right)
+        return single_rotation_right(disbalanced_node)
+    
+
     
     def get_height(self,node):
         if node is None:
@@ -49,6 +58,6 @@ def main():
     tree = AVLTree()
     tree.construct_tree()
     tree.inorder_traverse(tree.head)
-    tree.head = tree.left_left_rotation(tree.head)
+    tree.head = tree.single_rotation_left(tree.head)
     print(tree.head.left.data, tree.head.data, tree.head.right.data)
 main()
