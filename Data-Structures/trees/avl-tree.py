@@ -28,6 +28,7 @@ class AVLTree:
         disbalanced_node.height = max(self.get_height(disbalanced_node.left),self.get_height(disbalanced_node.right))
 
         return newParent
+
     def double_rotation_lr(self,disbalanced_node):
         disbalanced_node.left = single_rotation_right(disbalanced_node.left)
         return single_rotation_left(disbalanced_node)
@@ -37,7 +38,33 @@ class AVLTree:
         return single_rotation_right(disbalanced_node)
     
 
-    
+    def insert(self,node,data):
+        if node is None:
+            return AVLTreeNode(data)
+        if data < node.data:
+            node.left =  self.insert(node.left,data)
+        else:
+            node.right =  self.insert(node.right,data)
+        balanced = self.get_height(node.left) - self.get_height(node.right)
+
+        if balanced > 1:
+            #left size is unbalanced
+            if self.get_height(node.left.left) > self.get_height(node.left.right):
+                ##left left
+                node.left = self.single_rotation_left(node.left)
+            else:
+                node.left = self.double_rotation_lr(node.left) 
+        if balanced < -1:
+            #right size is unbalanced
+            if self.get_height(node.right.right) > self.get_height(node.right.left):
+                node.right = self.single_rotation_right(node.right)
+            else:
+                node.right = self.double_rotation_rl(node.right)
+        node.height = 1+ max(self.get_height(node.left),self.get_height(node.right))
+        return node
+
+
+
     def get_height(self,node):
         if node is None:
             return -1
@@ -56,8 +83,8 @@ class AVLTree:
 
 def main():
     tree = AVLTree()
-    tree.construct_tree()
+    for i in range(10):
+        tree.head = tree.insert(tree.head,10-i)
+
     tree.inorder_traverse(tree.head)
-    tree.head = tree.single_rotation_left(tree.head)
-    print(tree.head.left.data, tree.head.data, tree.head.right.data)
 main()
