@@ -49,40 +49,40 @@ class MaxHeap:
             self.max_heapify(i)
         return
     def extract_max(self):
-        length = len(self.array) 
+        length = len(self.array)
         if(length==0):
             return -1
-        if(length > 1):
-            self.array[0],self.array[length] = self.array[length],self.array[0]
+        length -=1
+        self.array[0],self.array[length] = self.array[length],self.array[0]
         retValue = self.array.pop()
         self.max_heapify(0)
         return retValue
 
-
-    def heap_sort(self):
-        length = len(self.array)
-        print("Init Heap Sort")
-        retValue = []
-        for i in range(length):
-            max_value = self.extract_max()
-            print(f"after extract {max_value}")
-            print(self)
-            retValue.append(max_value)
-        return retValue
-
-
     def __str__(self):
         return str(self.array)
+    def __len__(self):
+        return len(self.array)
+
+
+def heap_sort(array):
+    heap = MaxHeap()
+    heap.build_max_heap(array)
+
+    length = len(heap)
+    retValue = []
+    for i in range(length):
+        max_value = heap.extract_max()
+        retValue.append(max_value)
+    return retValue
+
 
 def main():
-    heap = MaxHeap()
+   
     array = []
     for i in range(10):
         array.append(randrange(10,100))
     print(array)
-    heap.build_max_heap(array)
-    print("FINAL")
-    print(heap.heap_sort())
+    print(heap_sort(array))
 main()
 
 
