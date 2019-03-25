@@ -2,7 +2,7 @@ from stack import Stack
 
 def find_span(array):
     
-    span_array = [];
+    span_array = []
     day_stack = Stack()
     for index,day_value in enumerate(array):
         if index ==0:

@@ -46,7 +46,7 @@ class CLinkedList:
     def delete_node(self,position):
         if self.head is None:
             print("List is empty")
-            return;
+            return
         if position ==0:
             if(self.count ==1):
                 self.head = None

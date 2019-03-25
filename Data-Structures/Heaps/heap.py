@@ -1,10 +1,12 @@
 from random import randrange
 
 class MaxHeap:
-    def __init__(self):
-        self.array = [ 51, 88, 73 , 63 ,65 , 78, 108]
+    def __init__(self,array = None):
+        self.array = []
+        if array is not None and len(array) > 0:
+            self.build_max_heap(array)
         self.count  = 0
-    def find_parent(index):
+    def get_parent(self,index):
         if index < 0 or index > len(self.array):
             return -1
         return (index-1)//2
@@ -57,6 +59,20 @@ class MaxHeap:
         retValue = self.array.pop()
         self.max_heapify(0)
         return retValue
+    
+    def insert(self,element):
+        self.array.append(element)
+        self.perculate_up(len(self)-1)
+        
+
+    def perculate_up(self,index):
+        if(index <= 0):
+            return
+        parent = self.get_parent(index)
+        if self.array[parent] > self.array[index]:
+            self.array[parent],self.array[index] = self.array[index],self.array[parent]
+            self.perculte_up(parent)
+
 
     def __str__(self):
         return str(self.array)
@@ -78,11 +94,11 @@ def heap_sort(array):
 
 def main():
    
-    array = []
-    for i in range(10):
-        array.append(randrange(10,100))
-    print(array)
-    print(heap_sort(array))
+    array = [102,103,105]
+    heap = MaxHeap(array)
+    heap.insert(1000)
+    print(heap)
+    
 main()
 
 
