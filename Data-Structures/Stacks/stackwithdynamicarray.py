@@ -35,6 +35,5 @@ def main():
     dStack.push(6)
     dStack.push(7)
     dStack.pop()
-    dStack.pop()
     print(dStack)
 main()
