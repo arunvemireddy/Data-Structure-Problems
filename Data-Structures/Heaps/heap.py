@@ -38,11 +38,6 @@ class MaxHeap:
         if max_index != index:
             self.array[index], self.array[max_index] = self.array[max_index], self.array[index]
             self.max_heapify(max_index)
-    
-    def construct(self):
-        self.array.append(14)
-        self.array.append(15)
-        self.array.append(13)
 
     def build_max_heap(self,array):
         self.array = array
