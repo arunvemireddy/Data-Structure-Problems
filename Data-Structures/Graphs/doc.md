@@ -1,4 +1,4 @@
-#Graphs
+# Graphs
 A Graph G is an ordered pair of a set V of vertices and E as edges.
 G(V,E)
 where V is a set of vertices: {v1,v2,v3,v4,v5}
