@@ -12,22 +12,42 @@ class Graph:
             raise ValueError("Vertex not found in Graph")
 
     def __str__(self):
-        retValue = ''
+        ret_value = ''
         for key in self.information:
             retValue += "'{}': {} \n".format(key,self.information[key].__str__())
         return retValue
-            
-                
+    
+def construct_visited_nodes(graph):
+    ret_value = {}
+    for key in graph.information:
+        ret_value[key] = False
+    return ret_value
+
+def dfs(graph,visited,node):
+    if not visited[node]:
+        print(node)
+        visited[node] = True
+        for next_node in graph.information[node]:
+            dfs(graph,visited,next_node)
+    return
 
 def main():
     graph = Graph()
     graph.insert_vertex("a")
     graph.insert_vertex("b")
     graph.insert_vertex("c")
+    graph.insert_vertex("z")
     graph.connect("a","b")
     graph.connect("a","c")
     graph.connect("c","b")
-
-    print(graph)
+    
+    graph.insert_vertex("d")
+    graph.insert_vertex("e")
+    graph.connect("b","d")
+    graph.connect("d","e")
+    graph.connect('b','z')
+    
+    visited = construct_visited_nodes(graph)
+    dfs(graph,visited,"a")
 
 main()
