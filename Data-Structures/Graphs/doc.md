@@ -46,3 +46,15 @@ When there is direct connection between all the nodes, ie we can read to any nod
 * Computer Networks: LAN, Internet, Web 
 * Database: For representing ER Diagrams.
 
+
+## Breath First Search
+BFS is like level order search in Trees. In this first we find all the neighbours of the current node. Once we are finished visiting each neighbours of the current node, we then start to explore the neignbour
+
+## Deapth First Search 
+DFS is similar to DFS of a tree, the only catch in this is that there can be cycles so that we have to take care of cycles. One simple way to do that is to maintain a hashtable to all the nodes which we have visited.
+
+### Edge Classification
+* *tree edges:* (Parent Pointer) visite new vertex via edge
+* *forward edges:* node to a descendant in a tree
+* *bacward edges:* node to an ancestor in a tree
+* *cross edges:*  between two subtrees

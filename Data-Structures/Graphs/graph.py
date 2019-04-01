@@ -16,19 +16,26 @@ class Graph:
         for key in self.information:
             retValue += "'{}': {} \n".format(key,self.information[key].__str__())
         return retValue
-    
-def construct_visited_nodes(graph):
-    ret_value = {}
-    for key in graph.information:
-        ret_value[key] = False
-    return ret_value
 
 def dfs(graph,visited,node):
-    if not visited[node]:
+    if node not in visited:
         print(node)
         visited[node] = True
         for next_node in graph.information[node]:
             dfs(graph,visited,next_node)
+    return
+
+def bfs(graph,visited,node):
+    neighbours = graph.information[node]
+    queue = neighbours[:]
+    print(node)
+    visited[node] = True
+    while len(queue) > 0:
+        temp = queue.pop()
+        if temp not in visited:
+            visited[temp] = True
+            print(temp)
+            queue.extend(graph.information[temp])    
     return
 
 def main():
@@ -47,7 +54,6 @@ def main():
     graph.connect("d","e")
     graph.connect('b','z')
     
-    visited = construct_visited_nodes(graph)
-    dfs(graph,visited,"a")
+    bfs(graph,{},"a")
 
 main()
