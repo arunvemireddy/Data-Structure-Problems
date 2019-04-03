@@ -50,7 +50,7 @@ When there is direct connection between all the nodes, ie we can read to any nod
 ## Breath First Search
 BFS is like level order search in Trees. In this first we find all the neighbours of the current node. Once we are finished visiting each neighbours of the current node, we then start to explore the neignbour
 
-## Deapth First Search 
+## Depth First Search 
 DFS is similar to DFS of a tree, the only catch in this is that there can be cycles so that we have to take care of cycles. One simple way to do that is to maintain a hashtable to all the nodes which we have visited.
 
 ### Edge Classification
