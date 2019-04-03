@@ -20,11 +20,34 @@ class Graph:
         else:
             raise ValueError("Vertex not found in Graph")
 
+    def find_distance(self,start,end):
+        queue = []
+        distance = {}
+        for key in self.information:
+            distance[key] = -1
+        distance[start] = 0
+        path = {}
+        queue.append(start)
+        while len(queue) > 0:
+            temp = queue.pop()
+            for neighbour in self.information[temp]:
+                if distance[neighbour.destination] == -1:
+                    distance[neighbour.destination] = distance[temp] + 1
+                    path[neighbour.destination] = temp
+                    queue.append(neighbour.destination)
+        print("path",path)
+        print("distance",distance)
+
+
+        
+
+
     def __str__(self):
         ret_value = ''
         for key in self.information:
-            retValue += "'{}': {} \n".format(key,self.information[key].__str__())
-        return retValue
+            connections = [i.destination for i in self.information[key]]
+            ret_value += "'{}': {} \n".format(key,connections)
+        return ret_value
 
 def dfs(graph,visited,node):
     if node not in visited:
@@ -47,22 +70,19 @@ def bfs(graph,visited,node):
             queue.extend(graph.information[temp.destination])    
     return
 
+
+
 def main():
     graph = Graph()
     graph.insert_vertex("a")
     graph.insert_vertex("b")
     graph.insert_vertex("c")
-    graph.insert_vertex("z")
     graph.connect("a","b")
-    graph.connect("a","c")
-    graph.connect("c","b")
+    graph.connect("b","c")
+    print(graph)
+    graph.find_distance("a","c")
     
-    graph.insert_vertex("d")
-    graph.insert_vertex("e")
-    graph.connect("b","d")
-    graph.connect("d","e")
-    graph.connect('b','z')
     
-    dfs(graph,{},"a")
+    
 
 main()
