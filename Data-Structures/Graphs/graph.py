@@ -1,13 +1,22 @@
+class Edge:
+    def __init__(self,destination,weight=1):
+        self.destination = destination
+        self.weight = weight
+    def __str__(self):
+        return "{} {}".format(self.destination,self.weight)
 class Graph:
-    def __init__(self):
+    def __init__(self,directional=False):
         self.information = {}
+        self.directional=directional
     def insert_vertex(self,vertex):
         if vertex not in self.information:
             self.information[vertex] = []
-    def connect(self,u,v):
-        if v in self.information and v in self.information:
-            self.information[u].append(v)
-            self.information[v].append(u)
+    def connect(self,u,v,weight=1):
+        if v in self.information and u in self.information:
+
+            self.information[u].append(Edge(v,weight))
+            if not self.directional:
+                self.information[v].append(Edge(u,weight))
         else:
             raise ValueError("Vertex not found in Graph")
 
@@ -22,7 +31,7 @@ def dfs(graph,visited,node):
         print(node)
         visited[node] = True
         for next_node in graph.information[node]:
-            dfs(graph,visited,next_node)
+            dfs(graph,visited,next_node.destination)
     return
 
 def bfs(graph,visited,node):
@@ -32,10 +41,10 @@ def bfs(graph,visited,node):
     visited[node] = True
     while len(queue) > 0:
         temp = queue.pop()
-        if temp not in visited:
-            visited[temp] = True
+        if temp.destination not in visited:
+            visited[temp.destination] = True
             print(temp)
-            queue.extend(graph.information[temp])    
+            queue.extend(graph.information[temp.destination])    
     return
 
 def main():
@@ -54,6 +63,6 @@ def main():
     graph.connect("d","e")
     graph.connect('b','z')
     
-    bfs(graph,{},"a")
+    dfs(graph,{},"a")
 
 main()

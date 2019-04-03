@@ -58,3 +58,9 @@ DFS is similar to DFS of a tree, the only catch in this is that there can be cyc
 * *forward edges:* node to a descendant in a tree
 * *bacward edges:* node to an ancestor in a tree
 * *cross edges:*  between two subtrees
+
+## Shortest Path Algorithms
+__Notations:__
+* P is path which is set or verticies. ex <v1,v2,v3>
+* W(P): W is a function which calculates the total *work* which is addition of all the weights in the path P. P = [v1,v2,v3] and W = Sum(P)
+* Delta(u,v) is a function which finds the total weight to go from u to v, along with the path
