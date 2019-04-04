@@ -64,3 +64,12 @@ __Notations:__
 * P is path which is set or verticies. ex <v1,v2,v3>
 * W(P): W is a function which calculates the total *work* which is addition of all the weights in the path P. P = [v1,v2,v3] and W = Sum(P)
 * Delta(u,v) is a function which finds the total weight to go from u to v, along with the path
+
+### Dijksta's Shortest Path
+This algoritm is used to find the shortest paths into DAGs which is directed acyclic graphs. This uses greedy algorithm.
+__Time Complexity:__
+* With Adjacency List and Priority Queue: *O((V+E)logV)*
+* With Matrix and Priority Queue: *O(V^2 + ElogV)*
+* With FibonacciHeap and Adjacency List: *O(E + VlogV)*
+
+
