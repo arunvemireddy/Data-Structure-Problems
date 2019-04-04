@@ -1,3 +1,5 @@
+import sys
+
 class Edge:
     def __init__(self,destination,weight=1):
         self.destination = destination
@@ -39,8 +41,26 @@ class Graph:
         print("distance",distance)
 
 
+    def dijkstras_shortest_path(source,destination):
+        distance = {}
+        path = {}
+        for key in self.information:
+            distance[key] = sys.maxint
+        distance[source] = 0
+        path[source] = source
         
+        def relax(u,v,w):
+            if distance[v] < distance[u] + w:
+                distance[v] = distance[u] + w
+                path[v] = u
+        queue = []
+        queue.append(source)
 
+        while len(queue) > 0:
+            temp = queue.pop()
+            for neighbour in self.information[temp]:
+                relax(temp,neighbour.destination,neighbour.weight)
+        
 
     def __str__(self):
         ret_value = ''
