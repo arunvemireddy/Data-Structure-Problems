@@ -1,5 +1,9 @@
 from queue import Queue
 
+# Function to construct an inter leaving queue
+# INPUT 1 2 3 4 5 6
+# OUTPUt 1 4 2 5 3 6
+# @@Param: queue
 def inter_leaving_queue(q):
     if len(q)%2 != 0:
         return

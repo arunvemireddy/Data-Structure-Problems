@@ -1,5 +1,7 @@
 from circular_linked_list import CLinkedList
 
+#Function to merge a sorted linked list
+# @@Param: first_list, second_list
 def merge_sorted_linked_list(aNode,bNode):
     if(aNode == None):
         return bNode

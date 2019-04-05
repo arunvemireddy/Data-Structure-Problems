@@ -1,18 +1,30 @@
 from stack import Stack
 
+#Used to Convert infix expression to postfix expression
 class Convertor:
     def __init__(self):
         self.stack = Stack()
-        
+    
+    # Method to check if char is operator
+    # @@Param: char
     def is_operator(self,char):
         operators = {"+","-","/","*"}
         return char in operators
+
+    # Method to check if char is Bracket
+    # @@Param: char
     def is_bracket(self,char):
         brackets = {"(",")"}
         return char in brackets
+
+    # Method to check if char is operand
+    # @@Param: char
     def is_operand(self,char):
         operators = {"+","-","/","*",")","("}
         return char not in operators 
+    
+    #Method to return prority of the expression
+    # @@Param: first operand, second operand
     def is_higher_pro(self,first,second):
         priority = {
             "(":17,
@@ -29,6 +41,8 @@ class Convertor:
             return priority[first] >= priority[second]
         return False
     
+    #Method to convertan Infix expression to postfix expression
+    # @@Param: string containing expression
     def infixToPostfix(self,expression):
         for char in expression:
             if self.is_operand(char):
@@ -54,6 +68,8 @@ class Convertor:
              if not self.is_bracket(top):
                  print(top),
                  
+    # Method to evalute a postfix expression
+    # @@Param: string containing a valid postfix expression
     def evaluatePostfix(self,expression):
         self.stack = Stack()
         for char in expression:

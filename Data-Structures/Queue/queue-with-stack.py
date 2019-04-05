@@ -1,5 +1,6 @@
 from stack import Stack
 
+#Creating a Stack Data Structure with Queue
 class QueueWithStack:
     def __init__(self):
         self.first_stack = Stack()

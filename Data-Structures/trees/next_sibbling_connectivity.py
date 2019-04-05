@@ -1,6 +1,8 @@
 from queue import Queue
 from tree import Tree
 
+# function to add new node into a next sibbling tree
+# @@Param: root node
 def insert_next_sibbling(node):
     queue = Queue()
     queue.enqueue(node.root)
@@ -20,6 +22,7 @@ def insert_next_sibbling(node):
     del queue
     return
 
+
 def insert_next_sibbling_rec(node):
     if not node:
         return
@@ -33,6 +36,8 @@ def insert_next_sibbling_rec(node):
     insert_next_sibbling_rec(node.left)
     insert_next_sibbling_rec(node.right)
 
+# Function to traverse next sibbling tree
+# @@Param: root node
 def traverse_next_sibbling_tree(tree):
     root = tree.root
     queue = Queue()

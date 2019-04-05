@@ -8,6 +8,9 @@ class AVLTreeNode:
 class AVLTree:
     def __init__(self):
         self.head = None
+    
+    # Method to do Left-Left rotation
+    # @@Param: disbalanced-node
     def single_rotation_left(self,disbalanced_node):
         newParent = disbalanced_node.left
         disbalanced_node.left = newParent.right
@@ -18,6 +21,9 @@ class AVLTree:
         disbalanced_node.height = max(self.get_height(disbalanced_node.left),self.get_height(disbalanced_node.right))
 
         return newParent
+    
+    # Method to do Right-Right rotation
+    # @@Param: disbalanced-node
     def single_rotation_right(self,disbalanced_node):
         newParent = disbalanced_node.right
         disbalanced_node.right = newParent.left
@@ -29,15 +35,21 @@ class AVLTree:
 
         return newParent
 
+    # Method to do LR rotation
+    # @@Param: disbalanced node
     def double_rotation_lr(self,disbalanced_node):
         disbalanced_node.left = single_rotation_right(disbalanced_node.left)
         return single_rotation_left(disbalanced_node)
     
+    # Method to do RL rotation
+    # @@Param: disbalanced node
     def double_rotation_rl(self,disbalanced_node):
         disbalanced_node.right = single_rotation_left(disbalanced_node.right)
         return single_rotation_right(disbalanced_node)
     
 
+    # Method to insert a node into an AVL tree
+    # @@Param: root node, data 
     def insert(self,node,data):
         if node is None:
             return AVLTreeNode(data)
@@ -64,16 +76,14 @@ class AVLTree:
         return node
 
 
-
+    # Method to get height of a node
+    # @@Param: Return the height
     def get_height(self,node):
         if node is None:
             return -1
         return node.height
     
-    def construct_tree(self):
-        self.head = AVLTreeNode(10)
-        self.head.left = AVLTreeNode(20)
-        self.head.left.left = AVLTreeNode(30)
+    # Method to print inorder traverse of a tree
     def inorder_traverse(self,node):
         if node is None:
             return 

@@ -7,7 +7,9 @@ class Stack:
     def __init__(self):
         self.head = None
         self.length = 0
-        
+    
+    # Method to push data to stack
+    # @@Param: data
     def push(self,data):
         if self.head is None:
             self.head = Node(data,None)
@@ -17,6 +19,7 @@ class Stack:
         self.head = new_node
         self.length +=1
     
+    # Method to pop data from stack, i.e: remove and return the top element
     def pop(self):
         if self.length == 0:
             raise ValueError("Under Flow Condition")
@@ -26,7 +29,6 @@ class Stack:
         return retValue
 
     def __str__(self):
-        
         message = ""
         traverse = self.head
         if traverse is None:
@@ -37,11 +39,13 @@ class Stack:
             traverse = traverse.next
         return message
     
+    # Method to check if the stack is empty
     def is_empty(self):
         if self.length == 0:
             return True
         return False
     
+    # Method to return top of stack without deleting
     def get_top(self):
         if self.head is not None:
             return self.head.data

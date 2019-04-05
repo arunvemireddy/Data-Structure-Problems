@@ -1,4 +1,6 @@
 class CLNode:
+    # Constructor
+    # @@Param: data, next_node [optional]
     def __init__(self, data, nNode=None):
         if nNode is not None:
             self.next = nNode
@@ -9,11 +11,12 @@ class CLNode:
         return "{} -> {}".format(self.data,self.next.data)
 
 class CLinkedList:
-    
     def __init__(self):
         self.head = None
         self.count = 0
 
+    # method to insert node into list
+    # @@Param: data, position
     def insert_node(self, data, *position):
         if len(position) ==0:
             position = self.count
@@ -43,6 +46,8 @@ class CLinkedList:
         temp.next = new_node
         self.__increment_counter()
 
+    # Method to delete node
+    # @@Param: position
     def delete_node(self,position):
         if self.head is None:
             print("List is empty")
@@ -63,7 +68,7 @@ class CLinkedList:
             del current_node
         self.__increment_counter(-1)
         
-
+    #Method to traverse the list
     def traverse(self):
         if self.head is None:
             print("Empty List")

@@ -7,6 +7,8 @@ class Node:
         self.right_tag = False
         self.left_child = None
         self.right_child = None
+
+# Implementation of a treaded binary tree
 class ThreadedBinaryTree:
     def __init__(self):
         self.root = None

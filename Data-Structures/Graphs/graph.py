@@ -2,17 +2,28 @@ import sys
 
 class Edge:
     def __init__(self,destination,weight=1):
+        #Lets say there is an edge between A -> B
+        #self.destination will hold B which is the destination from A
         self.destination = destination
         self.weight = weight
     def __str__(self):
         return "{} {}".format(self.destination,self.weight)
+
 class Graph:
+    # Constructor 
+    # @@Params: optional directions True/False
     def __init__(self,directional=False):
         self.information = {}
         self.directional=directional
+
+    #method to insert vertex into the graph
+    # @@Params: vertex name
     def insert_vertex(self,vertex):
         if vertex not in self.information:
             self.information[vertex] = []
+    
+    # Method to connect to vertex with a weight
+    # @@Params: source, destination, weight
     def connect(self,u,v,weight=1):
         if v in self.information and u in self.information:
 
@@ -22,6 +33,8 @@ class Graph:
         else:
             raise ValueError("Vertex not found in Graph")
 
+    #Brute force algorithm to find distance between start and end
+    # @@Params: start(source), end(destination)
     def find_distance(self,start,end):
         queue = []
         distance = {}
@@ -41,6 +54,8 @@ class Graph:
         print("distance",distance)
 
 
+    # Implementation of dijkstra's shortest path algorithm
+    # @@Params: source, destination
     def dijkstras_shortest_path(self,source,destination):
         distance = {}
         path = {}
@@ -75,7 +90,11 @@ class Graph:
                 queue.append(neighbour.destination)
         print("distance",distance)
         print("path",path)
-
+    
+    # Implementation of bellman-ford shortest path algorithm
+    # @@Params: source, destination
+    def bellman_ford(self,source,destination):
+        pass
 
     def __str__(self):
         ret_value = ''
@@ -84,6 +103,8 @@ class Graph:
             ret_value += "'{}': {} \n".format(key,connections)
         return ret_value
 
+# Implementation of Depth First Search
+# @@Params: Graph, Empty Directory, Start Node
 def dfs(graph,visited,node):
     if node not in visited:
         print(node)
@@ -92,6 +113,9 @@ def dfs(graph,visited,node):
             dfs(graph,visited,next_node.destination)
     return
 
+
+# Implementation of Breath First Search
+# @@Params: Graph, Empty Directory, Start Node
 def bfs(graph,visited,node):
     neighbours = graph.information[node]
     queue = neighbours[:]

@@ -1,5 +1,7 @@
 from circular_linked_list import CLinkedList
 
+# Function to find cycle into a linked list
+# Uses concept of fast pointer and slow pointer
 def floyd_cycle_finding(head):
     slowPointer = head
     fastPointer = head

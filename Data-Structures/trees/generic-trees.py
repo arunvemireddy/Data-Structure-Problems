@@ -1,6 +1,10 @@
 from queue import Queue
 
+# Implemetation of Generic Trees
+# which has k sibblings and we only have poinnter to first of them
 class TreeNode:
+    # Constructor
+    # @@Param: data
     def __init__(self,data):
         self.data = data
         self.first_node = None
@@ -19,6 +23,7 @@ def create_generic_tree(head_node):
     fifth_child = TreeNode(6)
     fourth_child.next_sibbling = fifth_child
 
+# Traverse a generic tree and find if the sum is present
 def traverse_generic_tree(root,sum):
     queue = Queue()
     queue.enqueue(root)
@@ -37,6 +42,7 @@ def traverse_generic_tree(root,sum):
                 queue.enqueue(temp.first_node)
     if sum:
         print("Total: {}".format(total))
+
 def find_childs(node):
     total = 0
     if node is None:
@@ -46,6 +52,8 @@ def find_childs(node):
         total +=1
         node = node.next_sibbling
     return total
+
+# Function to find is a tree is isomorphic
 def is_tree_isomorphic(first,second):
     if not first  and not second :
         return True

@@ -1,5 +1,7 @@
 from stack import Stack
 
+# Checker to check if the syntax is correct
+# IDES uses these kind of concepts to find syntax errors
 class SyntaxChecker:
     def __init__(self):
         self.stack = Stack()

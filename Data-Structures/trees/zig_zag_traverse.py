@@ -1,5 +1,7 @@
 from stack import Stack
 
+# Function to traverse a tree in ZIG ZAG fashion
+# Method uses two stacks
 def zig_zag_traverse(node):
     if node is None:
         return 

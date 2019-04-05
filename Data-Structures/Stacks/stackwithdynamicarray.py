@@ -1,9 +1,13 @@
+# Creating a stack with dynamic array which doubles its size if shortage of space
 class StackWithDynamicArray:
     def __init__(self):
         self.length = 0
         self.capacity = 1
         self.stack = [None]*self.capacity
         self.top = 0
+    
+    # Method to push into stack
+    # @@Param: data
     def push(self,data):
         if self.length == self.capacity:
             new_stack = self.stack + [None]*self.capacity
@@ -13,6 +17,8 @@ class StackWithDynamicArray:
         self.stack[self.top] = data
         self.top+=1
         self.length+=1
+
+    # Method to pop from stack
     def pop(self):
         if self.length==0:
             raise ValueError("UnderFlow")

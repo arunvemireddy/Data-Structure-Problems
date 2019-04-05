@@ -6,6 +6,8 @@ class Node:
         self.prev = None
         self.next = None
 
+# Function to convert a Doubly Linked List to a Binary Seach Tree
+# @@Param: head of Doubly Linked List
 def convert_dll_to_bst(head):
     if not head or not head.next:
         return head
@@ -22,6 +24,7 @@ def convert_dll_to_bst(head):
 
     return middle
 
+# Function to find the middle of a linked list
 def get_middle(head):
     slow_pointer = head
     fast_pointer = head

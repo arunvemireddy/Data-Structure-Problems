@@ -6,6 +6,8 @@ from random import randrange
 
 head = Node(None)
 
+# Function to find a path in the tree with certain sum
+# @@Param: root of the tree, sum, empty list
 def find_path_with_sum(node,sum,path):
     if node is None:
         return
@@ -19,6 +21,8 @@ def find_path_with_sum(node,sum,path):
             find_path_with_sum(node.left,sum,path[:])
             find_path_with_sum(node.right,sum,path[:])
 
+# Function to create the mirror image of the tree
+# @@Param: root node
 def mirror_tree(node):
     if node is None:
         return
@@ -29,6 +33,8 @@ def mirror_tree(node):
     node.left = node.right
     node.right = temp
 
+# Function to check if two trees are mirror images
+# @@Param: root_node of first tree , root_node of second tree
 def is_mirror_trees(self,other):
     if self is None and other is None:
         return True
@@ -38,7 +44,9 @@ def is_mirror_trees(self,other):
         return False
     else:
         return is_mirror_trees(self.left,other.right) and is_mirror_trees(self.right,other.left)
-        
+
+# Function to construct a tree with preorder and inorder traverse
+# @@Param: preorder traverse , inorder traverse, start, end
 def build_tree(preorder_string,inorder_string,start,end):
     if start > end:
         return None
@@ -51,6 +59,9 @@ def build_tree(preorder_string,inorder_string,start,end):
     newNode.left = build_tree(preorder_string,inorder_string,start,inorderIndex-1) 
     newNode.right = build_tree(preorder_string,inorder_string,inorderIndex+1,end)
     return newNode
+
+# Function to convert a tree to doublely linked list
+# @@Param: root node
 
 def convert_tree_to_dll(node):
  
@@ -76,6 +87,7 @@ def copy_ref(self,other):
     self.right = other.right
     return self
 
+# Function to convert a linked list to binary search tree
 def convert_linked_list_to_bst(head):
     if head is None:
         return None
@@ -95,6 +107,8 @@ def convert_linked_list_to_bst(head):
         parent.left = left_child
         parent.right = right_child
 
+# Function to find the ceil of a number
+# @@Param: array, low number, high number, to find key
 def find_ceil(array,low,high,key):
     if key <array[low]:
         return low
@@ -115,6 +129,9 @@ def find_ceil(array,low,high,key):
         else:
             return find_ceil(array,mid+1,high,key)
 
+
+# Function to print node which are k1 < node.data < k2
+# @@Param: root node, k1 and k2  
 def range_print(node,k1,k2):
     if not None:
         return

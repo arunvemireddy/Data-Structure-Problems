@@ -1,4 +1,6 @@
 class Set:
+    # Constructor
+    # @@Param list of elements
     def __init__(self,elements):
         self.sets = [None]*(len(elements)+1)
         for element in elements:
@@ -7,10 +9,15 @@ class Set:
     def __str__(self):
         return str(self.sets)
     
+    # Method to find the parent of the element
+    # @@Param: element 
     def find(self,element):
         if self.sets[element] < 0:
             return element
         return self.find(self.sets[element])
+    
+    # Method to take union of two sets
+    # @@Param: first_element, second_element
     def union(self,x,y):
         x_parent = self.find(x)
         y_parent = self.find(y)

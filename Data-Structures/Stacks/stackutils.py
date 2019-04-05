@@ -1,5 +1,6 @@
 from stack import Stack
 
+# Function to reverse a stack
 def reverse_stack(stack):
     x = None
     if not stack.is_empty():

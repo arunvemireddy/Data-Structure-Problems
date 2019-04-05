@@ -2,6 +2,8 @@ from stack import Stack
 from queue import Queue
 
 class Node:
+    # Constructor
+    # @@Params: data, left_node[optional], right_node[optional]
     def __init__(self, data, left_node=None, right_node=None):
         self.data = data
         self.left = left_node
@@ -15,19 +17,25 @@ class Node:
     #     return self.data == other.data and self.left == other.left and self.right == other.right
 
 class Tree:
+
+    # Constructor
     def __init__(self):
         self.root = None
         self.height = 0
 
+    # Method to display Preorder traverse
     def preorder_traverse(self):
         self.__preorder_traverse(self.root)
 
+    # Method to display Inorder traverse
     def inorder_traverse(self):
         self.__inorder_traverse(self.root)
 
+    # Method to display Post traverse
     def postorder_traverse(self):
         self.__postorder_traverse(self.root)
 
+    # Method to display Preorder traverse iteratively    
     def preorder_traverse_itretive(self):
         stack = Stack()
         root = self.root
@@ -41,6 +49,7 @@ class Tree:
             root = stack.pop().data
             root = root.right
 
+    # Method to display Inorder traverse iteratively    
     def inorder_traverse_iterative(self):
         stack = Stack()
         root = self.root
@@ -54,6 +63,7 @@ class Tree:
             print(root.data)
             root = root.right
 
+    # Method to display Level Order traverse
     def levelorder_traverse(self):
         if self.root is None:
             return
@@ -86,6 +96,8 @@ class Tree:
             self.__inorder_traverse(node.right)
             print(node.data)
 
+    # Method to find the max value of the tree
+    # @@Param: root node
     def find_max(self, node):
         if node is None:
             return -999999
@@ -103,6 +115,8 @@ class Tree:
             max = current_data
         
         return max
+    
+    # Method to find the max value of the tree iteratively
     def find_max_iterative(self):
         queue = Queue()
         max = -999999
@@ -120,6 +134,8 @@ class Tree:
                 queue.enqueue(temp.right)
         return max
     
+    # Method to search for a value into tree
+    # @@Param: root node, value to find
     def search(self, node, value):
         if node is None:
             return False
@@ -130,6 +146,8 @@ class Tree:
             return left_value
         return self.search(node.right, value)
     
+    # Method to insert data into tree
+    # @@Param: dataS
     def insert(self,data):
         new_node = Node(data)
         if self.root is None:
@@ -155,6 +173,7 @@ class Tree:
         del queue
         return
     
+    # Method to find max sum of level
     def find_max_level_sum(self):
         queue = Queue()
         queue.enqueue(self.root)
@@ -178,6 +197,7 @@ class Tree:
                     queue.enqueue(None)
         return max_value
     
+    # Method to print paths to leaf nodes 
     def print_leaf_node_path(self,node,path):
         if node is None:
             return
@@ -189,7 +209,7 @@ class Tree:
             self.print_leaf_node_path(node.right,path[:])
 
         
-
+    # Method to get the size of the tree
     def size(self):
         return self.__size(self.root)
 
