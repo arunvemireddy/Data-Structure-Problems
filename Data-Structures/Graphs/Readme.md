@@ -1,7 +1,7 @@
 # Graphs
 A Graph G is an ordered pair of a set V of vertices and E as edges.
 G(V,E)
-where V is a set of vertices: {v1,v2,v3,v4,v5}
+where V is a set of vertices: {v1, v2, v3, v4, v5}
 And E is Edges which can be of two type: ordered or unordered
 
 
@@ -17,25 +17,27 @@ Unordered Edges are represted by "{}" brackets and it means {a,b} == {b,a}
 
 ## Properties
 
-### Self-Loop
+#### Self-Loop
 when a vertix have an edge such that E = (x,x). In other words where origin and destinations are same.
-### Multi-Edge
+#### Multi-Edge
 More then 1 edges between two vertices. Ex: There can be multiple flights from indore to mumbai.
-### Walk
+#### Walk
 A sequence of vertices where each adjacent pair is connected by an edge. Ex: <A, B, F, H, E, B, A, D> 
-### Path
+#### Path
 A Walk where no vertices ( thus no edges ) are repeated. Ex: <A, B, F, H>
-### Trail
+#### Trail
 A Walk where vertices can be repeated but edges can't be repeated.
 
-### Strongly/Weakly Connected Graphs
+#### Strongly/Weakly Connected Graphs
 When there is direct connection between all the nodes, ie we can read to any node from any node directly. These kinds or graphs are called Stronly connected graphs, otherwise they are called weakly connected graphs.
 
 
-## Formulas
+### Formulas
 * In an directed graph with N verticies there can be N*(N-1) Edges
 * Where as in undirected graph there will be (N*(N-1))/2 Edges
 
+#### Reference:
+* [MIT open course ware](https://www.youtube.com/watch?v=Aa2sqUhIn-E&list=PLUl4u3cNGP61Oq3tWYp6V_F-5jb5L2iHb&index=15)
 
 ## Graph Representation
 * Adjacency Matrix
@@ -70,16 +72,16 @@ DFS is similar to DFS of a tree, the only catch in this is that there can be cyc
 
 ## Shortest Path Algorithms
 __Notations:__
-* P is path which is set or verticies. ex <v1,v2,v3>
-* W(P): W is a function which calculates the total *work* which is addition of all the weights in the path P. P = [v1,v2,v3] and W = Sum(P)
+* P is path which is set or verticies. ex < v1, v2, v3 >
 * Delta(u,v) is a function which finds the total weight to go from u to v, along with the path
-
-### Relaxation
-Relaxation is a simple concept with an overly complicated name ( *like all the other things in software engineering* ). The concepts states * "If we find a shorter path to reach the destination just update the weight" *
-__sudo code:__
 * V: Destination
 * U: Source
 * W: Weight between U and V
+
+### Relaxation
+Relaxation is a simple concept with an overly complicated name ( *like all the other things in software engineering* ). The concepts states * "If we find a shorter path to reach the destination just update the weight" *
+#### Pseudocode:
+
 ``` python
     if distance[v] > distance[u] + w:       # If we find the shorter path to the destination
         distance[v] = distance[u] + w       # then change the distance table
@@ -88,6 +90,20 @@ __sudo code:__
 ### Dijksta's Shortest Path
 This algoritm is used to find the shortest paths into DAGs which is directed acyclic graphs. This uses greedy algorithm.
 
+### Pseudocode:
+```python
+
+    for each vertex v  in graph:
+        distance[v] = infinity
+        path[v] = None
+    Queue = add source to Queue
+    while Queue is not empty:
+        u = vertex with smallerst distance in Queue     # This is a min priority queue
+        remove u from queue
+        for each neighbour v of u:
+            relax(u,v,w)             # w is the weight between u and v
+            add v to Queue
+```
 
 #### Time Complexity
 * With Adjacency List and Priority Queue: *O((V+E)logV)*
@@ -101,7 +117,7 @@ This algoritm is used to find the shortest paths into DAGs which is directed acy
 ### Bellman-Ford Shortest Path
 As we know Dijkstra's shortes path algorithm fails to get us the correct weights if there are negative weights cycle in the graph so we need a better solution.
 
-#### Sudo Code:
+#### Pseudocode:
 
 ```python
     Initilize()
