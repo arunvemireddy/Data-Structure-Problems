@@ -65,11 +65,35 @@ __Notations:__
 * W(P): W is a function which calculates the total *work* which is addition of all the weights in the path P. P = [v1,v2,v3] and W = Sum(P)
 * Delta(u,v) is a function which finds the total weight to go from u to v, along with the path
 
+### Relaxation
+Relaxation is a simple concept with an overly complicated name ( *like all the other things in software engineering* ). The concepts states * "If we find a shorter path to reach the destination just update the weight" *
+__sudo code:__
+* V: Destination
+* U: Source
+* W: Weight between U and V
+``` python
+    if distance[v] > distance[u] + w:       # If we find the shorter path to the destination
+        distance[v] = distance[u] + w       # then change the distance table
+        path[v] = u                         # Update ancestor
+```
 ### Dijksta's Shortest Path
 This algoritm is used to find the shortest paths into DAGs which is directed acyclic graphs. This uses greedy algorithm.
+
 __Time Complexity:__
 * With Adjacency List and Priority Queue: *O((V+E)logV)*
 * With Matrix and Priority Queue: *O(V^2 + ElogV)*
 * With FibonacciHeap and Adjacency List: *O(E + VlogV)*
 
+### Bellman-Ford Shortest Path
+As we know Dijkstra's shortes path algorithm fails to get us the correct weights if there are negative weights cycle in the graph so we need a better solution.
 
+__sudo code:__
+
+```python
+    Bellman-Ford():
+        Initilize()
+        for i in range(N-1):        # Where N is the number of vertex
+            for edge in all_edges:
+                relax(edge.souce, edge.destination, edge.weights)   #Defination of relaxation given above in the doc
+```
+And that is it!
