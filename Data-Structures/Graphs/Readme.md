@@ -53,14 +53,14 @@ BFS is like level order search in Trees. In this first we find all the neighbour
 
 
 #### Reference Links
-* __[MIT OPEN COURSE WARE](https://www.youtube.com/watch?v=s-CYnVz-uh4&list=PLUl4u3cNGP61Oq3tWYp6V_F-5jb5L2iHb&index=13)__
-* __[Abdul Bari](https://www.youtube.com/watch?v=pcKY4hjDrxk)__ 
+* [MIT open course ware](https://www.youtube.com/watch?v=s-CYnVz-uh4&list=PLUl4u3cNGP61Oq3tWYp6V_F-5jb5L2iHb&index=13)
+* [Abdul Bari](https://www.youtube.com/watch?v=pcKY4hjDrxk) 
 
 ## Depth First Search 
 DFS is similar to DFS of a tree, the only catch in this is that there can be cycles so that we have to take care of cycles. One simple way to do that is to maintain a hashtable to all the nodes which we have visited.
 
-* __[MIT OPEN COURSE WARE](https://www.youtube.com/watch?v=AfSk24UTFS8&list=PLUl4u3cNGP61Oq3tWYp6V_F-5jb5L2iHb&index=14)__
-* __[Abdul Bari](https://www.youtube.com/watch?v=pcKY4hjDrxk)__ 
+* [MIT open course ware](https://www.youtube.com/watch?v=AfSk24UTFS8&list=PLUl4u3cNGP61Oq3tWYp6V_F-5jb5L2iHb&index=14)
+* [Abdul Bari](https://www.youtube.com/watch?v=pcKY4hjDrxk)
 
 ### Edge Classification
 * *tree edges:* (Parent Pointer) visite new vertex via edge
@@ -95,8 +95,8 @@ This algoritm is used to find the shortest paths into DAGs which is directed acy
 * With FibonacciHeap and Adjacency List: *O(E + VlogV)*
 
 #### Reference Links
-* __[MIT OPEN COURSE WARE](https://www.youtube.com/watch?v=2E7MmKv0Y24&list=PLUl4u3cNGP61Oq3tWYp6V_F-5jb5L2iHb&index=16)__
-* __[Abdul Bari](https://www.youtube.com/watch?v=XB4MIexjvY0)__ 
+* [MIT open course ware](https://www.youtube.com/watch?v=2E7MmKv0Y24&list=PLUl4u3cNGP61Oq3tWYp6V_F-5jb5L2iHb&index=16)
+* [Abdul Bari](https://www.youtube.com/watch?v=XB4MIexjvY0)
 
 ### Bellman-Ford Shortest Path
 As we know Dijkstra's shortes path algorithm fails to get us the correct weights if there are negative weights cycle in the graph so we need a better solution.
@@ -115,6 +115,6 @@ As we know Dijkstra's shortes path algorithm fails to get us the correct weights
 ```
 
 #### Reference Links
-* __[MIT OPEN COURSE WARE](https://www.youtube.com/watch?v=ozsuci5pIso)__
-* __[Abdul Bari](https://www.youtube.com/watch?v=FtN3BYH2Zes)__ 
+* [MIT open course ware](https://www.youtube.com/watch?v=ozsuci5pIso)
+* [Abdul Bari](https://www.youtube.com/watch?v=FtN3BYH2Zes)
 
