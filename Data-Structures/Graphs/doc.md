@@ -4,15 +4,16 @@ G(V,E)
 where V is a set of vertices: {v1,v2,v3,v4,v5}
 And E is Edges which can be of two type: ordered or unordered
 
-### Ordered Edges
-Ordered Edges are represented by "()" brackets and it means (a,b) != (b,a)
-### Unordered Edges
-Unordered Edges are represted by "{}" brackets and it means {a,b} == {b,a}
 
 ## Types of Graphs
 * Directed Graph
 * Undirected Graph
 * Weighted Graph
+
+### Ordered Edges
+Ordered Edges are represented by "()" brackets and it means (a,b) != (b,a)
+### Unordered Edges
+Unordered Edges are represted by "{}" brackets and it means {a,b} == {b,a}
 
 ## Properties
 
@@ -21,9 +22,9 @@ when a vertix have an edge such that E = (x,x). In other words where origin and 
 ### Multi-Edge
 More then 1 edges between two vertices. Ex: There can be multiple flights from indore to mumbai.
 ### Walk
-A sequence of vertices where each adjacent pair is connected by an edge. Ex: <A,B,F,H,E,B,A,D> 
+A sequence of vertices where each adjacent pair is connected by an edge. Ex: <A, B, F, H, E, B, A, D> 
 ### Path
-A Walk where no vertices ( thus no edges ) are repeated. Ex: <A,B,F,H>
+A Walk where no vertices ( thus no edges ) are repeated. Ex: <A, B, F, H>
 ### Trail
 A Walk where vertices can be repeated but edges can't be repeated.
 
@@ -50,8 +51,16 @@ When there is direct connection between all the nodes, ie we can read to any nod
 ## Breath First Search
 BFS is like level order search in Trees. In this first we find all the neighbours of the current node. Once we are finished visiting each neighbours of the current node, we then start to explore the neignbour
 
+
+#### Reference Links
+* __[MIT OPEN COURSE WARE](https://www.youtube.com/watch?v=s-CYnVz-uh4&list=PLUl4u3cNGP61Oq3tWYp6V_F-5jb5L2iHb&index=13)__
+* __[Abdul Bari](https://www.youtube.com/watch?v=pcKY4hjDrxk)__ 
+
 ## Depth First Search 
 DFS is similar to DFS of a tree, the only catch in this is that there can be cycles so that we have to take care of cycles. One simple way to do that is to maintain a hashtable to all the nodes which we have visited.
+
+* __[MIT OPEN COURSE WARE](https://www.youtube.com/watch?v=AfSk24UTFS8&list=PLUl4u3cNGP61Oq3tWYp6V_F-5jb5L2iHb&index=14)__
+* __[Abdul Bari](https://www.youtube.com/watch?v=pcKY4hjDrxk)__ 
 
 ### Edge Classification
 * *tree edges:* (Parent Pointer) visite new vertex via edge
@@ -79,21 +88,33 @@ __sudo code:__
 ### Dijksta's Shortest Path
 This algoritm is used to find the shortest paths into DAGs which is directed acyclic graphs. This uses greedy algorithm.
 
-__Time Complexity:__
+
+#### Time Complexity
 * With Adjacency List and Priority Queue: *O((V+E)logV)*
 * With Matrix and Priority Queue: *O(V^2 + ElogV)*
 * With FibonacciHeap and Adjacency List: *O(E + VlogV)*
 
+#### Reference Links
+* __[MIT OPEN COURSE WARE](https://www.youtube.com/watch?v=2E7MmKv0Y24&list=PLUl4u3cNGP61Oq3tWYp6V_F-5jb5L2iHb&index=16)__
+* __[Abdul Bari](https://www.youtube.com/watch?v=XB4MIexjvY0)__ 
+
 ### Bellman-Ford Shortest Path
 As we know Dijkstra's shortes path algorithm fails to get us the correct weights if there are negative weights cycle in the graph so we need a better solution.
 
-__sudo code:__
+#### Sudo Code:
 
 ```python
-    Bellman-Ford():
-        Initilize()
-        for i in range(N-1):        # Where N is the number of vertex
-            for edge in all_edges:
-                relax(edge.souce, edge.destination, edge.weights)   #Defination of relaxation given above in the doc
+    Initilize()
+    for i in range(N-1):        # Where N is the number of vertex
+        for edge in all_edges_in_graph:
+            relax(u, v, w)   #Defination of relaxation given above in the doc
+    
+    for edge in all_edges_in_graph:         # Check if negative cycles exists
+        if distance[v] > distance[u] + w:   # Even after N-1 iterations of relaxations
+            There is a Cycle                # If we are able to relax some edges there is a cycle
 ```
-And that is it!
+
+#### Reference Links
+* __[MIT OPEN COURSE WARE](https://www.youtube.com/watch?v=ozsuci5pIso)__
+* __[Abdul Bari](https://www.youtube.com/watch?v=FtN3BYH2Zes)__ 
+
