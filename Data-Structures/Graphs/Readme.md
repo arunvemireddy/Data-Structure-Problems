@@ -87,7 +87,7 @@ Relaxation is a simple concept with an overly complicated name ( *like all the o
         distance[v] = distance[u] + w       # then change the distance table
         path[v] = u                         # Update ancestor
 ```
-### Dijksta's Shortest Path
+### Dijkstra's Shortest Path
 This algoritm is used to find the shortest paths into DAGs which is directed acyclic graphs. This uses greedy algorithm.
 
 ### Pseudocode:
@@ -129,6 +129,10 @@ As we know Dijkstra's shortes path algorithm fails to get us the correct weights
         if distance[v] > distance[u] + w:   # Even after N-1 iterations of relaxations
             There is a Cycle                # If we are able to relax some edges there is a cycle
 ```
+
+#### Time Complexity
+* For sparese graphs: O(n^2)
+* For a complete graph it will take O(n^3) 
 
 #### Reference Links
 * [MIT open course ware](https://www.youtube.com/watch?v=ozsuci5pIso)
