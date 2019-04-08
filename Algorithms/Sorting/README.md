@@ -17,8 +17,10 @@ The simplest sort there is. Just keep comparing all the numbers in an array and 
 
 ```
 #### Time Complexity:
-*  O(n^2) 
-
+*  O(n^2)
+#### Reference
+1. (The Coding Train)[https://www.youtube.com/watch?v=67k3I2GxTH8] 
+---
 ### 2. Selection Sort
 Selection sort is an inplace sorting algorithm which doesnt require any additional space. This works well with files.
 And used to sort files which have large values but small keys, as the key are small.
@@ -36,7 +38,10 @@ And used to sort files which have large values but small keys, as the key are sm
 ```
 #### Time Complexity:
 * O(n^2)
-
+#### Reference
+1. (My code school)[https://www.youtube.com/watch?v=GUDLRan2DWM]
+2. (Geeks for Geeks)[https://www.youtube.com/watch?v=xWBP4lzkoyM]
+---
 ### 3. Insertion Sort
 
 Insertion sort is a simple sorting algorithm which works like we sort the playing cards in our hand.
@@ -54,6 +59,10 @@ Insertion sort is a simple sorting algorithm which works like we sort the playin
 #### Time Complexity
 * O(n^2)
 
+#### References:
+1. (MIT open course ware)[https://www.youtube.com/watch?v=Kg4bqzAqRBM&list=PLUl4u3cNGP61Oq3tWYp6V_F-5jb5L2iHb&index=3]
+2. (My code school)[https://www.youtube.com/watch?v=i-SKeOcBwko]
+---
 ### 4. Merge Sort
 Merge sort is a sorting algorithm which uses divide and conqure method. In merge sort we divide an array into smaller sub arrays and try to sort the smaller sub arrays. After the sub arrays are sorted we merge these sub arrays into big array
 
@@ -102,9 +111,64 @@ Merge sort contains 3 major parts.
 
 #### Time Complexity
 * (nlogn)
+#### References
+1. (MIT open course ware)[https://www.youtube.com/watch?v=Kg4bqzAqRBM&list=PLUl4u3cNGP61Oq3tWYp6V_F-5jb5L2iHb&index=3]
+2. (Abdul Bari)[https://www.youtube.com/watch?v=mB5HXBb_HY8]
+---
 
-#### 5. Quick Sort
-Like merge sort quick sort is another divide and conqure techinique. Let us take an example to understand Quick Sort. There are N students in the class, and the task for the class it that they have to stand in a line
-[  *height wise* ], i.e. shortest person at the front and longest at the back. Just like we used to stand in assmebly in our schools. They beauty of the algorithms comes from the same concept, at that times we knew where our place is, so no one had to direct us to ie sort us. In the same fansion in quick sort the numbers find their own place and don't care about others. Now the question is how do we do that? 
+### 5. Quick Sort
+Like merge sort, quick sort is another divide and conqure techinique. Let us take an example to understand Quick Sort. There are N students in the class, and the task for the class it that they have to stand in a line
+[  *height wise* ], i.e. shortest person at the front and longest at the back. Just like we used to stand in assembly in our schools. The beauty of the algorithm comes from the same concept, at that times we knew where our place is, so no one had to direct us i.e. sort us. In the same fansion in quick sort the numbers find their own place and don't care about others. Now the question is how do we do that? 
+
+__Steps:__
+1. Let the students stand in a line randomly
+2. After everyone is in the line mark the first student as PIVOTE student (__P__) and LOW (__L__)
+3. Put a gigantic student at the end of the line. He is not the part of class, he is just denoting the end of the line. Take a look at the below given animation for the reference. Mark him with a tag HIGH (__H__)
+4. Now the __L__ student take a look at his right and tries to find a student with more then __P's__ height and marks him __L__.
+5. Simultaneously the __H__ student takes a look at his left and tries to find a student who has lesser height then __P__ and mark him __H__.
+6. Once new __H__ and new __L__ are found, they switch places.
+7. We continue doing this untill __H__ is standings left to __L__
+8. Onces __H__ is in left of __L__, __P__ swaps places with __H__.
+9. Now __P__ is at correct position, everyone in his left are smaller then him (unsorted) and everyone in his right are bigger then him(unsorted).
+10. Now imagine everyone hom __P__ left as a new line and everyone on right another line and continue the whole process again. Simple Recursion
 
 ![Alt Text](https://github.com/shubhamg2404/Data-Structure-Problems/blob/master/Media/gif/quick-sort.gif)
+
+#### Pseudocode
+Partitation if a function which performs all the tasks which we discussed in above steps
+
+```python
+    def partitation(line, low, high):
+        p = low                     # Marking P student
+        pivote = line[low]         
+        l = low, h = high           # Marking L and H students
+
+        while l < h:
+            while True:
+                l+=1
+                if line[l] > pivote:    # Student taller then pivote
+                    break
+            while True:
+                j-=1
+                if line[h] <= pivote:   # Student shorted then pivote
+                    break
+            if l < j:
+                swap(line[l], line[h])  #   Change Places
+        swap(line[h],line[p])           # Finally pivote at right place
+    return h
+
+    def quick_sort(line, low, high):
+        if low < high:
+            h = partitation(line,low,high)
+            quick_sort(line, low, h)
+            quick_sort(array, h+1, high)
+
+```
+
+#### Time Complexity
+* O(nlogn)
+
+#### Reference
+1. (Adbul Bari)[https://www.youtube.com/watch?v=7h1s2SojIRw]
+
+---
