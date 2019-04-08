@@ -19,7 +19,7 @@ The simplest sort there is. Just keep comparing all the numbers in an array and 
 #### Time Complexity:
 *  O(n^2)
 #### Reference
-1. (The Coding Train)[https://www.youtube.com/watch?v=67k3I2GxTH8] 
+1. [The Coding Train](https://www.youtube.com/watch?v=67k3I2GxTH8) 
 ---
 ### 2. Selection Sort
 Selection sort is an inplace sorting algorithm which doesnt require any additional space. This works well with files.
@@ -39,8 +39,8 @@ And used to sort files which have large values but small keys, as the key are sm
 #### Time Complexity:
 * O(n^2)
 #### Reference
-1. (My code school)[https://www.youtube.com/watch?v=GUDLRan2DWM]
-2. (Geeks for Geeks)[https://www.youtube.com/watch?v=xWBP4lzkoyM]
+1. [My code school](https://www.youtube.com/watch?v=GUDLRan2DWM)
+2. [Geeks for Geeks](https://www.youtube.com/watch?v=xWBP4lzkoyM)
 ---
 ### 3. Insertion Sort
 
@@ -60,8 +60,8 @@ Insertion sort is a simple sorting algorithm which works like we sort the playin
 * O(n^2)
 
 #### References:
-1. (MIT open course ware)[https://www.youtube.com/watch?v=Kg4bqzAqRBM&list=PLUl4u3cNGP61Oq3tWYp6V_F-5jb5L2iHb&index=3]
-2. (My code school)[https://www.youtube.com/watch?v=i-SKeOcBwko]
+1. [MIT open course ware](https://www.youtube.com/watch?v=Kg4bqzAqRBM&list=PLUl4u3cNGP61Oq3tWYp6V_F-5jb5L2iHb&index=3)
+2. [My code school](https://www.youtube.com/watch?v=i-SKeOcBwko)
 ---
 ### 4. Merge Sort
 Merge sort is a sorting algorithm which uses divide and conqure method. In merge sort we divide an array into smaller sub arrays and try to sort the smaller sub arrays. After the sub arrays are sorted we merge these sub arrays into big array
@@ -112,8 +112,8 @@ Merge sort contains 3 major parts.
 #### Time Complexity
 * (nlogn)
 #### References
-1. (MIT open course ware)[https://www.youtube.com/watch?v=Kg4bqzAqRBM&list=PLUl4u3cNGP61Oq3tWYp6V_F-5jb5L2iHb&index=3]
-2. (Abdul Bari)[https://www.youtube.com/watch?v=mB5HXBb_HY8]
+1. [MIT open course ware](https://www.youtube.com/watch?v=Kg4bqzAqRBM&list=PLUl4u3cNGP61Oq3tWYp6V_F-5jb5L2iHb&index=3)
+2. [Abdul Bari](https://www.youtube.com/watch?v=mB5HXBb_HY8)
 ---
 
 ### 5. Quick Sort
@@ -169,6 +169,6 @@ Partitation if a function which performs all the tasks which we discussed in abo
 * O(nlogn)
 
 #### Reference
-1. (Adbul Bari)[https://www.youtube.com/watch?v=7h1s2SojIRw]
+1. [Adbul Bari](https://www.youtube.com/watch?v=7h1s2SojIRw)
 
 ---
