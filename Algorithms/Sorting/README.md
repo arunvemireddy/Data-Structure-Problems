@@ -17,7 +17,7 @@ The simplest sort there is. Just keep comparing all the numbers in an array and 
 
 ```
 #### Time Complexity:
-* $O(n^2)$
+* $ O(n^2) $
 
 ### 2. Selection Sort
 Selection sort is an inplace sorting algorithm which doesnt require any additional space. This works well with files.
