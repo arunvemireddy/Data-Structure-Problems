@@ -107,3 +107,4 @@ Merge sort contains 3 major parts.
 Like merge sort quick sort is another divide and conqure techinique. Let us take an example to understand Quick Sort. There are N students in the class, and the task for the class it that they have to stand in a line
 [  *height wise* ], i.e. shortest person at the front and longest at the back. Just like we used to stand in assmebly in our schools. They beauty of the algorithms comes from the same concept, at that times we knew where our place is, so no one had to direct us to ie sort us. In the same fansion in quick sort the numbers find their own place and don't care about others. Now the question is how do we do that? 
 
+![Alt Text](https://github.com/shubhamg2404/Data-Structure-Problems/blob/master/Media/gif/quick-sort.gif)
