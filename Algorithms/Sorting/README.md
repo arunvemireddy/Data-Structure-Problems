@@ -17,7 +17,7 @@ The simplest sort there is. Just keep comparing all the numbers in an array and 
 
 ```
 #### Time Complexity:
-* O(n^2) 
+* $O(n^2)$
 
 ### 2. Selection Sort
 Selection sort is an inplace sorting algorithm which doesnt require any additional space. This works well with files.
@@ -35,7 +35,7 @@ And used to sort files which have large values but small keys, as the key are sm
         swap(array[i],array[j])                 # Swap min with current
 ```
 #### Time Complexity:
-* O(n^2)
+* $O(n^2)$
 
 ### 3. Insertion Sort
 
@@ -52,7 +52,7 @@ Insertion sort is a simple sorting algorithm which works like we sort the playin
 ```
 
 #### Time Complexity
-* O(n^2)
+* $O(n^2)$
 
 ### 4. Merge Sort
 Merge sort is a sorting algorithm which uses divide and conqure method. In merge sort we divide an array into smaller sub arrays and try to sort the smaller sub arrays. After the sub arrays are sorted we merge these sub arrays into big array
@@ -101,4 +101,4 @@ Merge sort contains 3 major parts.
 ```
 
 #### Time Complexity
-* O(NlogN)
+* $O(nlogn)$
