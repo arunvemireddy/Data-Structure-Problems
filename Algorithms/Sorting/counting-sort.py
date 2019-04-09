@@ -1,4 +1,4 @@
-# Function to sort an array with insertion sorting algorithm
+# Function to sort an array with counting sorting algorithm
 # @@Param: list of numbers
 def counting_sort(array):
     max_val = max(array)
@@ -13,7 +13,7 @@ def counting_sort(array):
             
 
 def main():
-    array = [10,16,8,12,15,6,3,9,5,1000]            # note that 1000 is playing the role of infinity
+    array = [10,16,8,12,15,6,3,9,5,1000]            
     array = counting_sort(array)
     print(array)
     

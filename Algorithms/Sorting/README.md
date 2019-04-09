@@ -132,7 +132,7 @@ __Steps:__
 9. Now __P__ is at correct position, everyone in his left are smaller then him (unsorted) and everyone in his right are bigger then him(unsorted).
 10. Now imagine everyone on __P's__ left as a new line and everyone on the right another line and continue the whole process again. Simple Recursion
 
-![Alt Text](https://github.com/shubhamg2404/Data-Structure-Problems/blob/master/Media/gif/quick-sort.gif)
+![Alt Text](https://github.com/shubhamg2404/Data-Structure-Problems/blob/master/Media/gif/quick-sort-v1.gif)
 
 #### Pseudocode
 Partitation if a function which performs all the tasks which we discussed in above steps
