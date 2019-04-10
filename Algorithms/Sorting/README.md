@@ -191,3 +191,9 @@ Counting sort is an example of linear sorting algorithm. Linear means it can sor
         
         return sorted_array
 ```
+
+#### Time Complexity
+* O(N) depends on the range
+
+#### References
+1. [MIT Open course ware](https://www.youtube.com/watch?v=Nz1KZXbghj8&list=PLUl4u3cNGP61Oq3tWYp6V_F-5jb5L2iHb&index=7)
