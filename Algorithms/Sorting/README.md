@@ -172,3 +172,22 @@ Partitation if a function which performs all the tasks which we discussed in abo
 1. [Adbul Bari](https://www.youtube.com/watch?v=7h1s2SojIRw)
 
 ---
+
+### 6. Counting Sort
+Counting sort is an example of linear sorting algorithm. Linear means it can sort items in O(N) time. But efficeincy of a counting sort is propotional to the range of data.
+
+#### Pseudocode
+```python
+    def count_sort(array):
+        max = find the max value of the array                   # First find the max value
+        aux_array = create an array of length (max+1)           # create an auxilary array of length max value + 1
+        sorted_array = []
+        for each number in array:                               # if array is [7,5,9]
+            aux_array[number] +=1                               # Aux array will be [0,0,0,0,0,1,0,1,0,1]
+        for each index in aux_array:                            # Now just traverse whole aux array and add index-
+            if aux_array[index] is not 0:                       # Which is not zero
+                add index value to sorted array
+                if iaux_array[index] value is more than 1 add multiple elements
+        
+        return sorted_array
+```
