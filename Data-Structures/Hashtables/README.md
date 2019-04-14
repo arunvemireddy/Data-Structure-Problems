@@ -15,7 +15,7 @@ we have an empty array of length 10
 ```
 
 and we want to insert 123213, 123234, 435345, 12234327 into the array
-123213 % 10 = 3(index of the array)
+123213 % 10 = 3(index of the array) 
 123234 % 10 = 4
 435345 % 10 = 5
 134327 % 10 = 7
