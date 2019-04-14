@@ -9,8 +9,8 @@ class HashTable:
         self.keys = []
 
         self.prob_function = {
-            "linear":lambda x,y=0: (x+1) % self.length,
-            "quadratic":lambda x,y: (x+y)**2 % self.length,
+            "linear":lambda x,y=0: ((x+1) % self.length,y),
+            "quadratic":lambda x,y: ((x+y)**2 % self.length,y+1),
             "double-hashing":None
         }
         
@@ -46,7 +46,8 @@ class HashTable:
     def prob(self,index,factor=0):
         if (self.data[index + factor] == False) or (self.data[index+factor]== None):
             return index+factor
-        return self.prob(self.prob_function[self.prob_type](index, factor))
+        next_index, next_factor = self.prob_function[self.prob_type](index, factor) 
+        return self.prob(next_index,next_factor)
 
     
     
@@ -58,8 +59,7 @@ class HashTable:
         index = self.__hash(key)
         factor = 0
         while self.data[index] != False and self.data[index][0] != key:
-            index = self.prob_function[self.prob_type](index, factor)
-            factor +=1 
+            index,factor = self.prob_function[self.prob_type](index, factor)
         return self.data[index][1]
 
     # Method to delete a key from the hashtable
@@ -70,8 +70,7 @@ class HashTable:
             raise ValueError("Invalid Key")
         factor = 0
         while (self.data[index] and self.data[index][0] == key) or (self.data[index] == False):
-            index = self.prob_function[self.prob_type](index, factor)
-            factor +=1
+            index,factor = self.prob_function[self.prob_type](index, factor)
         self.data[index] = False
         self.filled -=1
         if len(self.data)//4 == self.filled:
