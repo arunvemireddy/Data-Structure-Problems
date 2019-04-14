@@ -16,8 +16,6 @@ class HashTable:
         
         if probing not in self.prob_function:
             raise ValueError("Invalid Probing types must be linear,quadratic or double-hashing")
-
-        
         self.prob_type = probing
 
     # Pseudoprivate Method to find the hash of the key
@@ -106,7 +104,7 @@ class HashTable:
         return str(self.data)
 
 def main():
-    table = HashTable(probing="quadratic")
+    table = HashTable(probing="linear")
     print(table.filled)
     values = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o']
     for i in range(15):
@@ -115,4 +113,5 @@ def main():
     for i in range(10):
         table.delete(values[i])
     print(table)
+
 main()
