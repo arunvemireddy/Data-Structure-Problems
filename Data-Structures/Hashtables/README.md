@@ -31,3 +31,16 @@ But the problem with this hash function is that there is a change of *collision*
 Practially this hash is not that simple, but it is out of scope to know what that is right now.<br>
 
 That hash function gives us O(1) time complexity with hight probability 
+
+## BloomFilters
+
+Bloom filters are the special kind of data structure which tells if the string has *not* been searched. Bloom filter is an array of 1's and 0's for length M.
+```
+    [0,0,0,0,0,0,0]
+```
+Another key component of a Bloomfilter is a Hash Function.
+For the examples sake lets take 3 hash function and try to insert a string "abcd" into the bloom filter.
+
+* *H1(X)*: First hash function 
+* *H2(X)*: Second hash function
+* *H3(X)*: Third hash function
