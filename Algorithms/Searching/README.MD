@@ -84,3 +84,30 @@ See how we were reducing the number of students in searching space, as we are cu
 #### Time Complexity
 1. [My code school](https://www.youtube.com/watch?v=j5uXyPJ0Pew)
 2. [Abdul Bari](https://www.youtube.com/watch?v=uEUXGcc2VXM)
+
+## String Searching
+String searching are very important  subset of algorithms. These algorithms help us to find substring/patterns into a given string this is is applied by your IDE when you do a simple search and replace.
+
+### 1. Naive/Brute Force Algorithm
+For this algorithm let us assume we have a string 
+*"HELLOHOWAREYOUDOING"* and we want to find *WAR* from this text.
+This simplets way to do this is would be match each character
+
+![Alt Text](https://github.com/shubhamg2404/Data-Structure-Problems/blob/master/Media/gif/naive_search.gif)
+
+#### Pseudocode
+```python
+    string = "HELLOHOWAREYOUDOING"
+    pattern = "WAR"
+    for i in range(0,len(string)):                  # For each char in string
+        temp = i
+        for j in range(0,len(pattern)):             # For each char in pattern
+            if string[temp]==string[j]:             # match string char by char
+                temp+=1
+                continue
+            else:
+                break
+```
+
+
+### 2. Rabin-Karp String Match Algorithm
