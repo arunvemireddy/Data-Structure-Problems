@@ -80,8 +80,10 @@ See how we were reducing the number of students in searching space, as we are cu
         else:
             return binary_search(array[mid:],key)   # Else do a binary search on mid+1 to last element
 ```
-
 #### Time Complexity
+O(logN) as we are eliminating 50% of the values with each check
+
+#### References
 1. [My code school](https://www.youtube.com/watch?v=j5uXyPJ0Pew)
 2. [Abdul Bari](https://www.youtube.com/watch?v=uEUXGcc2VXM)
 
@@ -109,5 +111,7 @@ This simplets way to do this is would be match each character
                 break
 ```
 
+#### Time Complexity
+O(MN)
 
 ### 2. Rabin-Karp String Match Algorithm
