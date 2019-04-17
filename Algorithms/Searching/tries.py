@@ -6,6 +6,7 @@ class TrieNode:
     def __init__(self,char):
         self.char = char
         self.children = {}
+        self.end_of_string = False
 
 # Class for Tries
 class Tries:
@@ -26,7 +27,7 @@ class Tries:
                 
         current_node = self.root.children[string[0]]
             
-        for char in string[1:]:                                 # Loop throught all the chars to insert or search into trie
+        for char in string[1:]:                                 # Loop through all the chars to insert or search into trie
             if char not in current_node.children:
                 if search:
                     return False
@@ -36,6 +37,7 @@ class Tries:
         
         if search:
             return True
+        current_node.end_of_string = True
     
     # Method to search into if the word exists
     # @@Param: string to search
