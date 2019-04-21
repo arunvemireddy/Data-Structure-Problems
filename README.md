@@ -15,6 +15,8 @@ The questions and given into the book attached.
 |    |    |____ binary-search.py
 |    |    |____ find-missing-number.py
 |    |    |____ rabin-karp.py
+|    |    |____ tries.py
+|    |    |____ documentation
 |    |____ Sorting
 |    |    |____ bubble-sort.py
 |    |    |____ counting-sort.py
