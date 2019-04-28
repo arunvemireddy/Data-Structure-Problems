@@ -6,6 +6,8 @@ The book itself is not sufficient to understand some hard concepts here are some
 * [Abdul Bari](https://www.youtube.com/watch?v=0IAPZzGSbME&list=PLDN4rrl48XKpZkf03iYFl-O29szjTrs_O)
 * [My Code School](https://www.youtube.com/watch?v=92S4zgXN17o&list=PL2_aWCzGMAwI3W_JlcBbtYTwiQSsOTa6P)
 
+If you click of the Folders in the table of content, each folder has it's won readme file which contains all the algorithms implemented inside that folder with time complexities, pseudocode and references.
+
 ## Table Of content
 1. [Algorithms](https://github.com/shubhamg2404/Data-Structure-Problems/tree/master/Algorithms)
     * [Backtracking](https://github.com/shubhamg2404/Data-Structure-Problems/tree/master/Algorithms/Backtracking)
