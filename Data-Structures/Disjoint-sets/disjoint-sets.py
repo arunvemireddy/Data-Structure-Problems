@@ -11,7 +11,6 @@ class Set:
 
     # Method to find the parent of the element
     # @@Param: element
-
     def find(self, element):
         if self.sets[element] < 0:
             return element
